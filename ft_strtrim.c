@@ -68,10 +68,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str = ft_strcpy(str, s1, start, end);
 	return (str);
 }
-#include <stdio.h>
-int	main(int argc, char **argv)
-{
-	if (argc != 3)
-		return (0);
-	printf("%s\n", ft_strtrim(argv[1], argv[2]));
-}
