@@ -3,77 +3,67 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: scraeyme <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/07 15:53:44 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/09/08 20:09:54 by scraeyme         ###   ########.fr       */
+/*   Created: 2024/10/08 13:35:35 by scraeyme          #+#    #+#             */
+/*   Updated: 2024/10/09 16:45:47 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-static size_t	ft_intlen(int n)
+static int	ft_intlen(int n)
 {
-	size_t	len;
-	int		tmp;
+	int	len;
 
-	len = 0;
-	if (n == 0)
-		return (1);
-	else if (n < 0)
-		tmp = -n;
-	else
-		tmp = n;
-	while (tmp > 0)
+	len = 1;
+	if (n <= -2147483648)
+		return (10);
+	n *= (1 + -2 * (n < 0));
+	while (n > 9)
 	{
-		tmp /= 10;
+		n /= 10;
 		len++;
 	}
 	return (len);
 }
 
-static char	*rev_str(char *str)
+static char	*make_str(char *res, int n, int len)
 {
-	int		i;
-	char	tmp;
-	int		size;
+	int	i;
 
 	i = 0;
-	size = ft_strlen(str);
-	while (i < size / 2)
+	res[len + (n < 0)] = 0;
+	if (n < 0)
 	{
-		tmp = str[i];
-		str[i] = str[size - 1 - i];
-		str[size - 1 - i] = tmp;
-		i++;
+		n *= -1;
+		res[0] = '-';
+		i = 1;
+		len++;
 	}
-	return (str);
+	while (len > i)
+	{
+		len--;
+		res[len] = n % 10 + '0';
+		n /= 10;
+	}
+	return (res);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*res;
-	int		i;
-	int		neg;
+	int		int_len;
 
-	i = 0;
-	neg = 0;
-	res = (char *)malloc(sizeof(char) * (int)ft_intlen(n) + 1);
-	if (n < 0)
+	if (n <= -2147483648)
 	{
-		n *= -1;
-		neg = 1;
+		res = ft_strdup("-2147483648");
+		return (res);
 	}
-	if (n == 0)
-		res[i++] = '0';
-	while (n > 0)
-	{
-		res[i] = n % 10 + '0';
-		n /= 10;
-		i++;
-	}
-	if (neg)
-		res[i++] = '-';
-	res[i] = '\0';
-	res = rev_str(res);
+	int_len = ft_intlen(n);
+	res = malloc(int_len + (n < 0) + 1);
+	if (!res)
+		return (NULL);
+	res = make_str(res, n, int_len);
 	return (res);
 }

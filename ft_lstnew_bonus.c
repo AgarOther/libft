@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: scraeyme <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 14:57:10 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/09/19 15:00:48 by scraeyme         ###   ########.fr       */
+/*   Created: 2024/10/10 14:18:10 by scraeyme          #+#    #+#             */
+/*   Updated: 2024/10/11 13:06:01 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*list;
+	t_list	*node;
 
-	list = malloc(sizeof(t_list));
-	if (!list)
+	node = malloc(sizeof(t_list));
+	if (!node)
 		return (NULL);
-	list->content = content;
-	list->next = NULL;
-	return (list);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

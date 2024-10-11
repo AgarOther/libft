@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scraeyme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/07 09:58:37 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/09/07 10:16:35 by scraeyme         ###   ########.fr       */
+/*   Created: 2024/10/07 11:58:17 by scraeyme          #+#    #+#             */
+/*   Updated: 2024/10/07 17:53:28 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_isalpha(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	return (0);
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }

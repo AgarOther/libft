@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scraeyme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/07 10:32:04 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/09/07 10:33:43 by scraeyme         ###   ########.fr       */
+/*   Created: 2024/10/07 13:07:43 by scraeyme          #+#    #+#             */
+/*   Updated: 2024/10/07 13:08:29 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	return (0);
+	return (c >= 32 && c <= 126);
 }

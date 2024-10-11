@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: scraeyme <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/09 19:48:09 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/09/09 20:41:36 by scraeyme         ###   ########.fr       */
+/*   Created: 2024/10/08 11:02:18 by scraeyme          #+#    #+#             */
+/*   Updated: 2024/10/11 13:59:30 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-static int	contains_char(char const s1, char const *s2)
+static int	has_character(char const c, char const *set)
 {
 	int	i;
 
 	i = 0;
-	while (s2[i])
+	while (set[i])
 	{
-		if (s2[i] == s1)
+		if (set[i] == c)
 			return (1);
 		i++;
 	}
@@ -36,7 +37,7 @@ static char	*ft_strcpy(char *dest, char const *src, int start, int end)
 		start++;
 		i++;
 	}
-	dest[i] = '\0';
+	dest[i] = 0;
 	return (dest);
 }
 
@@ -50,19 +51,19 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	start = 0;
 	end = ft_strlen(s1) - 1;
-	while (s1[start] && contains_char(s1[start], set))
+	while (has_character(s1[start], set))
 		start++;
-	while (s1[end] && contains_char(s1[end], set))
+	while (has_character(s1[end], set))
 		end--;
 	if (start > end)
 	{
-		str = malloc(sizeof(char));
+		str = malloc(1);
 		if (!str)
 			return (NULL);
-		str[0] = '\0';
+		str[0] = 0;
 		return (str);
 	}
-	str = malloc(sizeof(char) * (end - start + 2));
+	str = malloc(end - start + 2);
 	if (!str)
 		return (NULL);
 	str = ft_strcpy(str, s1, start, end);

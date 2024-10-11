@@ -5,15 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scraeyme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 20:32:58 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/09/02 20:45:39 by scraeyme         ###   ########.fr       */
+/*   Created: 2024/10/07 13:12:45 by scraeyme          #+#    #+#             */
+/*   Updated: 2024/10/07 13:14:18 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s[i])

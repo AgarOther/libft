@@ -3,18 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: scraeyme <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/08 14:21:18 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/09/08 14:22:34 by scraeyme         ###   ########.fr       */
+/*   Created: 2024/10/08 14:05:57 by scraeyme          #+#    #+#             */
+/*   Updated: 2024/10/10 12:28:13 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
+	if (fd < 0 || !s)
+		return ;
 	i = 0;
 	while (s[i])
 	{
